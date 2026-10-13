@@ -3,3 +3,6 @@ database.db
 *.log
 outbox/
 sent/
+.env
+__pycache__/
+.DS_Store
