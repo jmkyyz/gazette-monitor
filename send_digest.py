@@ -9,7 +9,7 @@ the file to sent/.
 Outbox file format (one .json per digest):
     {"subject": "...", "html": "<html body>", "text": "optional plain-text fallback"}
 
-Credentials: read from ~/statcan-explorer/.env (SMTP_HOST, SMTP_PORT,
+Credentials: read from ~/projects/gazette-monitor/.env (SMTP_HOST, SMTP_PORT,
 SMTP_USER, SMTP_PASS, NOTIFY_TO) — same file the other jobs use.
 
 Install:
@@ -28,8 +28,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 OUTBOX = HERE / "outbox"
 SENT = HERE / "sent"
-ENV_FILE = HERE.parent / ".env"
-APP_PASSWORD_RTF = Path("/Users/jasonkirby/Desktop/StatCanApp/gmail_app_password.txt.rtf")
+ENV_FILE = HERE / ".env"
+APP_PASSWORD_RTF = Path("/Users/jasonkirby/.config/gmail_app_password.txt.rtf")
 
 FROM_DEFAULT = "jmk.yyz.data@gmail.com"
 TO_DEFAULT = "jasonkirby@gmail.com"

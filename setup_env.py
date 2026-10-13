@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """One-time setup: extract the Gmail app password from the Desktop RTF and
-write real values into ~/statcan-explorer/.env, so background launchd jobs
+write real values into ~/projects/gazette-monitor/.env, so background launchd jobs
 don't need Desktop access. Run from Terminal:  python3 setup_env.py"""
 import re
 from pathlib import Path
 
-RTF = Path("/Users/jasonkirby/Desktop/StatCanApp/gmail_app_password.txt.rtf")
-ENV = Path.home() / "statcan-explorer" / ".env"
+RTF = Path("/Users/jasonkirby/.config/gmail_app_password.txt.rtf")
+ENV = Path(__file__).resolve().parent / ".env"
 
 content = RTF.read_text()
 password = None

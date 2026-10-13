@@ -29,13 +29,13 @@ matches new items against a keyword watchlist organized by beat.
 
 ## Setup
 
-The app lives in `~/statcan-explorer/gazette-monitor` (outside `~/Desktop`
+The app lives in `~/projects/gazette-monitor` (outside `~/Desktop`
 so the cron ingest avoids macOS TCC folder restrictions) and runs on the
 system Python at `/usr/local/bin/python3`, which has the dependencies
 installed (`pip3 install -r requirements.txt` if starting fresh).
 
 ```bash
-cd ~/statcan-explorer/gazette-monitor
+cd ~/projects/gazette-monitor
 
 # First run: creates database.db, seeds 5 default beat rules,
 # and backfills the last 4 weeks of issues (~1–2 minutes; the
@@ -59,7 +59,7 @@ Then open <http://localhost:5006>.
 Installed in the user crontab (July 4, 2026):
 
 ```cron
-30 8 * * * cd /Users/jasonkirby/statcan-explorer/gazette-monitor && /usr/local/bin/python3 ingest.py >> ingest.log 2>&1
+30 8 * * * cd /Users/jasonkirby/projects/gazette-monitor && /usr/local/bin/python3 ingest.py >> ingest.log 2>&1
 ```
 
 Runs at 8:30 a.m. daily. The pipeline is idempotent — `index_url` and
